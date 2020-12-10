@@ -13,5 +13,6 @@ connectDB()
 
 app.use('/product', require('./routes/api/product'))
 app.use('/auth', require('./routes/api/auth'))
+app.use('/user', require('./routes/api/user'))
 
 app.listen(3000, () => console.log("Connected"))
