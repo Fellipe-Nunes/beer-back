@@ -3,7 +3,7 @@ const bodyParser = require('body-parser')
 const connectDB = require('./config/db')
 const cors = require('cors')
 const app = express()
-const port = process.env || 3000
+const PORT = process.env.PORT || 3000
 
 app.use(express.json())
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -16,4 +16,4 @@ app.use('/product', require('./routes/api/product'))
 app.use('/auth', require('./routes/api/auth'))
 app.use('/user', require('./routes/api/user'))
 
-app.listen(port, () => console.log("Connected"))
+app.listen(PORT, () => console.log("Connected"))
