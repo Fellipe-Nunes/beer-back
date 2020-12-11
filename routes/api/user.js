@@ -8,7 +8,7 @@ const auth = require('../../middleaware/auth')
 // @route    GET /user/:userId
 // @desc     DETAIL user
 // @access   Public
-router.get('/:userId', [], async (req, res, next) => {
+router.get('/:userId', [], async (req, res) => {
   try {
     const id = req.params.userId
     const user = await User.findOne({ _id: id })
@@ -26,7 +26,7 @@ router.get('/:userId', [], async (req, res, next) => {
 // @route    DELETE /user/:userId
 // @desc     DELETE user
 // @access   Public
-router.delete('/:userId', async (req, res, next) => {
+router.delete('/:userId', async (req, res) => {
   try {
     const id = req.params.userId
     const user = await User.findOneAndDelete({ _id: id })
@@ -78,7 +78,7 @@ router.put('/:userId', [
 // @route    PATCH /user/:userId
 // @desc     PARTIAL EDIT user
 // @access   Public
-router.patch('/:userId', [], async (request, res, next) => {
+router.patch('/:userId', [], async (request, res) => {
   try {
     const errors = validationResult(request)
     if (!errors.isEmpty()) {
@@ -109,7 +109,7 @@ router.patch('/:userId', [], async (request, res, next) => {
 // @route    GET /user
 // @desc     LIST user
 // @access   Private
-router.get('/', auth, async (req, res, next) => {
+router.get('/', auth, async (res,) => {
   try {
     const user = await User.find({})
     res.json(user)
