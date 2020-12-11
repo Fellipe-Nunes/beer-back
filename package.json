@@ -4,12 +4,10 @@
   "description": "Api de gerenciamento de estoque",
   "main": "index.js",
   "author": "Fellipe Nunes",
-
   "scripts": {
     "start": "node server.js",
     "server": "nodemon server.js"
   },
-  
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
