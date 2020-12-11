@@ -1,7 +1,7 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "Api de gerenciamento de estoque",
+  "description": "Api de gerenciamento de cervejas",
   "main": "index.js",
   "author": "Fellipe Nunes",
   "scripts": {
@@ -11,15 +11,15 @@
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
-    "jsonwebtoken": "^8.5.1",
     "body-parser": "^1.19.0",
-    "config": "^3.3.1",
+    "config": "^3.3.3",
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "express-validator": "^6.6.1",
-    "mongoose": "^5.10.0"
+    "express-validator": "^6.8.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.11.7"
   },
   "devDependencies": {
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.6"
   }
 }
