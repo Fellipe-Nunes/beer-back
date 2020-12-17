@@ -5,7 +5,8 @@ const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const config = require('config')
 const { check, validationResult } = require('express-validator')
-
+const secret = process.env.jwtSecret || config.get('jwtSecret')
+const auth = require('../../middleaware/auth')
 
 // @route    POST /auth
 // @desc     Authenticate user & get token
@@ -13,7 +14,7 @@ const { check, validationResult } = require('express-validator')
 router.post('/', [
   check('email', 'Please include a valid email').isEmail(),
   check('senha', 'Password is required').exists()
-], async (req, res) => {
+], auth, async (req, res) => {
   const errors = validationResult(req)
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() })
@@ -42,7 +43,7 @@ router.post('/', [
         }
 
 
-        jwt.sign(payload, config.get('jwtSecret'), { expiresIn: '10 days' },
+        jwt.sign(payload, secret, { expiresIn: '10 days' },
           (err, token) => {
             if (err) throw err
             payload.token = token
