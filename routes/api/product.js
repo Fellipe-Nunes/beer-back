@@ -4,7 +4,17 @@ const { check, validationResult } = require('express-validator')
 const Cerveja = require('../../models/produto')
 const auth = require('../../middleaware/auth')
 
-router.get('/', auth, async (req, res, next) => {
+router.get('/', auth, async (req, res) => {
+  try {
+    const cerveja = await Cerveja.find({})
+    res.json(cerveja)
+  } catch (err) {
+    console.error(err.message)
+    res.status(500).send({ "error": "Server Error" })
+  }
+})
+
+/*router.get('/', auth, async (req, res, next) => {
   try {
     const cerveja = await Cerveja.find({})
 
@@ -18,7 +28,7 @@ router.get('/', auth, async (req, res, next) => {
     console.error(err.message)
     res.status(500).send({ "error": "Server error" })
   }
-})
+})*/
 
 router.post('/', [
   check('serial').not().isEmpty(),

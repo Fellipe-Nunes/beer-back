@@ -2,7 +2,7 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "Api de gerenciamento de cervejas",
-  "main": "index.js",
+  "main": "server.js",
   "author": "Fellipe Nunes",
   "scripts": {
     "start": "node server.js",
@@ -17,7 +17,7 @@
     "express": "^4.17.1",
     "express-validator": "^6.8.0",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.11.7"
+    "mongoose": "5.11.8"
   },
   "devDependencies": {
     "nodemon": "^2.0.6"
